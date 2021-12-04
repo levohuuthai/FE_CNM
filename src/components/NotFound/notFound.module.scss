@@ -1,0 +1,59 @@
+.bodyNotFound {
+  color: #fff;
+  width: 100%;
+  height: 100vh;
+  font-size: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: radial-gradient(
+    circle,
+    #cfcfcf,
+    #bcb9bc,
+    #aba3a8,
+    #9c8e91,
+    #8c7979
+  );
+  //display: flex;
+  // align-items: center;
+  // justify-content: center;
+  .notFound {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 80px;
+    color: #eee;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    text-shadow:    /* first set */ 0 1px 0 rgb(190, 190, 190),
+      0 2px 0 rgb(185, 185, 185), 0 3px 0 rgb(180, 180, 180),
+      0 4px 0 rgb(175, 175, 175), 0 5px 0 rgb(170, 170, 170),
+      0 6px 0 rgb(165, 165, 165), 0 7px 0 rgb(160, 160, 160),
+      /* second set */ 0 1px 5px rgba(0, 0, 0, 0.05),
+      0 3px 5px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.15),
+      0 7px 10px rgba(0, 0, 0, 0.2), 0 10px 15px rgba(0, 0, 0, 0.25);
+    &:hover {
+      text-shadow: 0 1px 0 rgb(190, 190, 190), 0 2px 0 rgb(185, 185, 185),
+        0 3px 0 rgb(180, 180, 180), 0 4px 0 rgb(175, 175, 175),
+        0 5px 0 rgb(170, 170, 170), 0 6px 0 rgb(165, 165, 165),
+        0 7px 0 rgb(160, 160, 160), 0 8px 0 rgb(155, 155, 155),
+        0 9px 0 rgb(150, 150, 150), 0 1px 5px rgba(0, 0, 0, 0.05),
+        0 5px 5px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.15),
+        0 15px 10px rgba(0, 0, 0, 0.2), 0 20px 15px rgba(0, 0, 0, 0.25);
+
+      transform: translate(-51%, -51%);
+      transition: all 0.3s ease-in-out;
+    }
+  }
+  .returnHome {
+    font-size: 30px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

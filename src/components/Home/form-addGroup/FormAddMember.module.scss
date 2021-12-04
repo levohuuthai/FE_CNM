@@ -1,0 +1,332 @@
+.modalFormAddGroup {
+  .backdrop {
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    width: 300%;
+    height: 300%;
+    background: rgba(#1a1a1a, 0.6);
+    z-index: 99;
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+  .viewFormAddGroup {
+    position: fixed;
+    top: 10%;
+    left: 30%;
+    transform: translateX(-50%) translateY(-50%);
+    background: white;
+    width: 40%;
+    height: 500px;
+    box-shadow: 4px 2px -5px 5px rgba($color: #1a1a1a, $alpha: 0.5);
+    z-index: 999;
+    border-radius: 4px;
+    border: 1px solid rgba($color: gray, $alpha: 0.2);
+    transform: scaleY(0) scaleX(0);
+    transition: all 0.3s;
+    &.active {
+      transform-origin: center;
+      transform: scaleY(1) scaleX(1) !important;
+    }
+    .header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      border-bottom: 1px solid rgba($color: gray, $alpha: 0.2);
+      h2 {
+        font-size: 18px;
+      }
+      .cancel {
+        position: relative;
+        .blur {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-50%);
+          :hover {
+            background: rgba($color: gray, $alpha: 0.2);
+          }
+          i {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            font-size: 30px;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+    .body {
+      width: 100%;
+      height: 100%;
+      .form {
+        width: 100%;
+        height: 100%;
+
+        .addFriend {
+          padding: 10px 20px;
+          h6 {
+            font-size: 14px;
+            color: rgba($color: #1a1a1a, $alpha: 1);
+          }
+          .search {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            i {
+              color: gray;
+              padding: 10px;
+              border-top: 1px solid rgba($color: gray, $alpha: 0.2);
+              border-left: 1px solid rgba($color: gray, $alpha: 0.2);
+              border-bottom: 1px solid rgba($color: gray, $alpha: 0.2);
+              border-bottom-left-radius: 20px;
+              border-top-left-radius: 20px;
+              &.active {
+                border-top: 1px solid blue;
+                border-left: 1px solid blue;
+                border-bottom: 1px solid blue;
+              }
+            }
+            input {
+              width: 100%;
+              padding: 10px;
+              border-top: 1px solid rgba($color: gray, $alpha: 0.2);
+              border-right: 1px solid rgba($color: gray, $alpha: 0.2);
+              border-bottom: 1px solid rgba($color: gray, $alpha: 0.2);
+              border-bottom-right-radius: 20px;
+              border-top-right-radius: 20px;
+              &.active {
+                border-top: 1px solid blue;
+                border-right: 1px solid blue;
+                border-bottom: 1px solid blue;
+              }
+            }
+          }
+        }
+        .result {
+          display: flex;
+          justify-content: space-between;
+          padding: 10px 20px;
+          width: 100%;
+          height: 300px;
+          border-bottom: 1px solid rgba($color: gray, $alpha: 0.2);
+          overflow: hidden;
+          .friends {
+            width: 55%; 
+            &.activeSelected {
+              width: 55%;
+            }
+            .user {
+              margin-top: 10px;
+              width: 95%;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              .left {
+                width: 80%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .avatar {
+                  cursor: pointer;
+                  width: 20%;
+                  img {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                  }
+                }
+                p {
+                  margin-left: 15px;
+                  width: 80%;
+                }
+              }
+              .right {
+                width: 20%;
+                button {
+                  width: 80px;
+                  &.disabelButtonAdd {
+                    cursor: not-allowed;     
+                  }
+                  padding: 7px 10px;
+                  background: #805740;
+                  border-radius: 10px;
+                  color: white;
+                  cursor: pointer;
+                  position: relative;
+                  &::after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(white, 0.2);
+                    opacity: 0;
+                    transition: all 0.4s ease-out;
+                  }
+                  &::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(white, 0.2);
+                    opacity: 0;
+                    transition: all 0.5s ease-out;
+                  }
+                  &:hover {
+                    &::after {
+                      opacity: 1;
+                      transform: scaleX(0);
+                    }
+                    &::before {
+                      opacity: 1;
+                      transform: scaleY(0);
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .selected {
+            width: 45%; //45%
+            margin-left: 20px;
+            height: 100%;
+            transform: translateX(100%);
+            border-left: 1px solid rgba($color: gray, $alpha: 0.2);
+            padding-left: 10px;
+            opacity: 0;
+            h4 {
+              opacity: 0;
+            }
+            &.activeSelected {
+              h4 {
+                opacity: 1;
+              }
+              opacity: 1;
+              transform: translateX(0%);
+              transition: all 0.4s;
+              width: 45%;
+            }
+            .listUser {
+              height: 212px;
+              overflow-y: auto;
+              overflow-x: hidden;
+              .user {
+                background: rgba(#FFD149, 0.6);
+                padding: 3px;
+                margin-top: 10px;
+                border-radius: 25px;
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                .left {
+                  width: 80%;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  .avatar {
+                    cursor: pointer;
+                    width: 20%;
+                    img {
+                      width: 30px;
+                      height: 30px;
+                      border-radius: 50%;
+                    }
+                  }
+                  p {
+                    margin-left: 15px;
+                    width: 80%;
+                  }
+                }
+                .right {
+                  width: 20px;
+                  height: 20px;
+                  border-radius: 50%;
+                  background: #805740;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  i {
+                    display: flex;
+                    color: white;
+                    cursor: pointer;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .button {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          padding: 10px 20px;
+          .cancel {
+            cursor: pointer;
+            font-weight: bold;
+            padding: 10px 15px;
+            background: rgba($color: gray, $alpha: 0.2);
+            border-radius: 5px;
+            &:hover {
+              background: rgba($color: gray, $alpha: 0.5);
+            }
+          }
+          .create {
+            padding: 10px 15px;
+            background: #805740;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+            margin-left: 15px;
+            border-radius: 5px;
+            position: relative;
+            &::after {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: rgba(white, 0.2);
+              opacity: 0;
+              transition: all 0.4s ease-out;
+            }
+            &::before {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: rgba(white, 0.2);
+              opacity: 0;
+              transition: all 0.5s ease-out;
+            }
+            &:hover {
+              &::after {
+                opacity: 1;
+                transform: scaleX(0);
+              }
+              &::before {
+                opacity: 1;
+                transform: scaleY(0);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
